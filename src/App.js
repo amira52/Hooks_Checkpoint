@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import MovieList from './Components/MovieList';
+import { moviesData } from './Constant/Data';
+import SearchAppBar from './Components/NavBar/NavBar';
+import MovieCard from './Components/MovieCard';
+import SimpleModal from './Components/Add';
+
 
 function App() {
+  const [movies, setMovies] = useState(moviesData);
+  const [searchText, setSearchText] = useState("")
+  const addMovie =(movie) => setMovies(movie.concat(movie));
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchAppBar setSearchText ={setSearchText} />
+      <SimpleModal addMovie={addMovie}/>
+      <MovieList movies={movies} searchText={searchText}/>
     </div>
   );
-}
-
+  }
 export default App;

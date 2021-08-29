@@ -1,0 +1,7 @@
+.MuiToolbar-regular {
+  min-height: 64px;
+  background-color: rgb(194, 114, 61);
+}
+.movie_card {
+  display: flex;
+}
