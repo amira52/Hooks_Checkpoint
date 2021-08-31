@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal(addMovie) {
+export default function SimpleModal({addMovie}) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -65,8 +65,21 @@ export default function SimpleModal(addMovie) {
       <p>Type:</p>
       <input type="text" onChange={(e) => setType(e.target.value)}/>
       <p>Image URL:</p>
-      <input type="text" onChange={(e) => setImage(e.target.value)}/> <br/>
-      <input type="submit" value="Envoyer" />
+      <input type="text" onChange={(e) => setImage(e.target.value)}/>
+       <br/>
+       <br/>
+      <input type="submit" value="Envoyer" onClick={(e) =>{
+        e.preventDefault();
+        addMovie({name, 
+        image,
+        description,
+        rating,
+        type,
+        date,
+        id:Math.random()
+      });
+        handleClose();
+        }} />
     </form>
   );
 
