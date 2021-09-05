@@ -1,8 +1,11 @@
 import React from 'react'
 import './MovieCard.css' 
 import { Rating } from '@material-ui/lab';
-
 import Box from '@material-ui/core/Box';
+import {Link} from "react-router-dom";
+
+
+
 const MovieCard = ({movie}) => {
     return (
         <div>
@@ -18,10 +21,15 @@ const MovieCard = ({movie}) => {
         <p className="text">
           {movie.description} 
         </p>
-        <Box component="fieldset" mb={3} borderColor="transparent">
-        
+      <Box component="fieldset" mb={3} borderColor="transparent">
         <Rating name="read-only" value={movie.rating} readOnly />
       </Box>
+      </div>
+      <div>
+        <Link 
+        to={{pathname:"/description", state:{movie}}}>
+          Watch TRAILER
+        </Link>
       </div>
     </div>
     <div className="blur_back bright_back" />

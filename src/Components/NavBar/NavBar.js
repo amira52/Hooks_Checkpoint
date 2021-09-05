@@ -7,7 +7,7 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import './NavBar.css' 
 import SearchTexte from './SearchTexte';
-import SearchRate from './Components/NavBar/SearchRate';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -85,11 +85,7 @@ export default function SearchAppBar({setSearchText, setSearchRating, searchRati
             Movies
           </Typography>
           <SearchTexte setSearchText={setSearchText} />
-          <SearchRate
-            setSearchRating={setSearchRating}
-            searchRating={searchRating}
-          />
-        </Toolbar>
+          </Toolbar>
       </AppBar>
     </div>
   );
